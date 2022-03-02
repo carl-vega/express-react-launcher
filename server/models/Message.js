@@ -10,12 +10,9 @@ const messageSchema = new Schema(
         sentAt: {
             type: Date,
             default: Date.now,
-
         }
     }
 );
-
-
 
 
 const Message = model('Message', messageSchema);

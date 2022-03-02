@@ -4,9 +4,7 @@ import { Schema, model } from 'mongoose';
 
 const projectSchema = new Schema(
   {
-    title: {
-      type: String,
-    },
+    title: String,
     description: [{
       type: String,
     }],
@@ -15,8 +13,6 @@ const projectSchema = new Schema(
     image: String
   }
 );
-
-
 
 
 const Project = model('Project', projectSchema);
