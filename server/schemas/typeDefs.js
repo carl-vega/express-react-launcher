@@ -21,7 +21,7 @@ export default gql`
     live: String
     image: String
   }
-
+  
   input ProjectInput {
     title: String
     description: [String]

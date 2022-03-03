@@ -39,7 +39,7 @@ export default {
         },
         // addMessage(body: String!) Auth
         addMessage: async (parent, { body }, context) => {
-            const message = (context.user) ? await Message.create({ body }) : null;
+            const message = (context.user) ? await Message.create(body) : null;
             const user = (message) ? await User.findOneAndUpdate({ _id: context.user._id }, { $push: { messages: message._id } }) : null;
             const token = signToken(user);
             if (!token) throw new AuthenticationError('You need to be logged in!');
@@ -47,7 +47,9 @@ export default {
         },
         // addProject(projectData: ProjectInput!): [Project]
         addProject: async (parent, { projectData }) => {
-            const project = await Project.create({ projectData });
+            console.log(projectData);
+            const project = await Project.create(projectData);
+            console.log(project);
             if (project) return await Project.find({});
             throw new Error('Could not add project');
         },
