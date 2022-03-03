@@ -1,8 +1,9 @@
 import { AuthenticationError } from 'apollo-server-express';
-import { User, Message, Project } from '../models';
-import { signToken } from '../utils/auth';
-
-export default resolvers = {
+import models from '../models/index.js';
+const { User, Message, Project } = models;
+import auth from '../utils/auth.js';
+const { signToken } = auth;
+export default {
     Query: {
         // me: User
         me: async (parent, args, context) => {
@@ -38,9 +39,11 @@ export default resolvers = {
         },
         // addMessage(body: String!) Auth
         addMessage: async (parent, { body }, context) => {
-            if (context.user) const message = await Message.create({ body });
-            if (message) const user = await User.findOneAndUpdate({ _id: context.user._id },)
-            throw new AuthenticationError('You need to be logged in!');
+            const message = (context.user) ? await Message.create({ body }) : null;
+            const user = (message) ? await User.findOneAndUpdate({ _id: context.user._id }, { $push: { messages: message._id } }) : null;
+            const token = signToken(user);
+            if (!token) throw new AuthenticationError('You need to be logged in!');
+            return { token, user }
         },
         // addProject(projectData: ProjectInput!): [Project]
         addProject: async (parent, { projectData }) => {
