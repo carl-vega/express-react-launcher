@@ -45,11 +45,15 @@ export default {
             if (!token) throw new AuthenticationError('You need to be logged in!');
             return { token, user }
         },
+        // addReply(messageId: ID!, reply: String): Message
+        addReply: async (parent, { messageId, reply }, context) => {
+            const message = (context.user) ? await Message.findOneAndUpdate({ _id: messageId }, { reply }) : null;
+            if (!message) throw new Error('You are not Carl Vega');
+            return { message }
+        },
         // addProject(projectData: ProjectInput!): [Project]
         addProject: async (parent, { projectData }) => {
-            console.log(projectData);
             const project = await Project.create(projectData);
-            console.log(project);
             if (project) return await Project.find({});
             throw new Error('Could not add project');
         },

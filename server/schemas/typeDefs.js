@@ -12,6 +12,7 @@ export default gql`
     _id: ID!
     body: String
     sentAt: String
+    reply: String
   }
   type Project {
     _id: ID!
@@ -45,6 +46,7 @@ export default gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addMessage(body: String!): Auth
+    addReply(messageId: ID!, reply: String): Message
     addProject(projectData: ProjectInput!): [Project]
     removeProject(projectId: ID!): [Project]
   }

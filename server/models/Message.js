@@ -9,6 +9,9 @@ const messageSchema = new Schema(
         sentAt: {
             type: Date,
             default: Date.now,
+        },
+        reply: {
+            type: String,
         }
     }
 );
