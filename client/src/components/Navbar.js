@@ -1,22 +1,54 @@
 // package imports
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import styles from "./styles.module.css"
+import { login } from "../images"
 
-export default function Navbar() {
+export default function Navbar({ openSidenav }) {
+    const active = "active"
     return (
         <>
-            <nav>
+            <nav className={styles.navbar}>
+                <a href="#" onClick={openSidenav}><img src={login} /></a>
                 <ul>
                     <li>
-                        <Link to="/">home</Link>
+                        <NavLink
+                            to="/"
+                            className={({ isActive }) =>
+                                isActive ? active : undefined
+                            }
+                        >
+                            carl.vega
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to="/projects">projects</Link>
+                        <NavLink
+                            to="/projects"
+                            className={({ isActive }) =>
+                                isActive ? active : undefined
+                            }
+                        >
+                            projects
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to="/message">About</Link>
+                        <NavLink
+                            to="/message"
+                            className={({ isActive }) =>
+                                isActive ? active : undefined
+                            }
+                        >
+                            message
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to="/resume">About</Link>
+                        <NavLink
+                            to="/resume"
+                            className={({ isActive }) =>
+                                isActive ? "active" : undefined
+                            }
+                        >
+                            resume
+                        </NavLink>
                     </li>
                 </ul>
             </nav>

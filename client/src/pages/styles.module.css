@@ -1,0 +1,208 @@
+.homeH1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  transform: rotate(-45deg);
+  width: 228px;
+  height: 228px;
+  margin: auto;
+  background: linear-gradient(to top right, #9e6804 0%, #dae5ec 100%);
+  color: #dae5ec;
+}
+
+.homeH1 span:nth-child(1) {
+  grid-area: 1/1;
+  place-self: end start;
+  text-align: start;
+  border-top: 6px solid #dae5ec;
+  width: 100%;
+}
+.homeH1 span:nth-child(2) {
+  writing-mode: vertical-lr;
+  grid-area: 2/2;
+  border-left: 6px solid #dae5ec;
+}
+.homeH1 span:nth-child(3) {
+  grid-area: 1/2;
+  place-self: end;
+  border-top: 6px solid #dae5ec;
+  width: 101%;
+  text-align: start;
+}
+.homeSection,
+.messageSection {
+  width: 36vw;
+  margin: auto;
+}
+.homeSection div {
+  padding: 2rem 4rem;
+  background: #9e6804;
+  color: #dae5ec;
+}
+.projectSection,
+.resumeSection {
+  width: 66vw;
+  margin: auto;
+}
+.projectSection h1 span,
+.messageSection h1 span,
+.resumeSection h1 span {
+  transform: skew(-30deg);
+  display: inline-block;
+  background: #9e6804;
+}
+.projectSection h1 span span,
+.messageSection h1 span span,
+.resumeSection h1 span span {
+  transform: skew(50deg);
+  display: inline-block;
+  background: #9e6804;
+  color: #dae5ec;
+  padding: 0.5rem 1rem;
+}
+.projectSection h1 span span span,
+.messageSection h1 span span span,
+.resumeSection h1 span span span {
+  transform: skew(-30deg);
+  display: inline-block;
+}
+.projectSection ul {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  list-style-type: none;
+}
+.projectSection ul li {
+  z-index: -1;
+  height: 10rem;
+  border-radius: 20px;
+  /* maybe change left color to #96815b */
+  background: linear-gradient(to right, #9e6804 0%, #dae5ec 100%);
+  /* box-shadow: 8px -8px 10px #aab3b8, -8px 8px 10px #ffffff; */
+  position: relative;
+  border: 1px solid #9e6804;
+}
+/* .projectSection ul li:first-child {
+  grid-area: auto / 1 / span 2 / span 2;
+  height: auto;
+} */
+.projectSection ul li:nth-child(10n + 8),
+.projectSection ul li:nth-child(10n + 1) {
+  grid-area: auto / auto / span 2 / span 2;
+  height: auto;
+}
+/* {
+  grid-area: auto / 1 / span 2 / span 2;
+  height: auto;
+} */
+.projectSection ul li header span {
+  padding: 0.5rem 1.5rem;
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  background: #dae5ec;
+}
+.projectSection ul li header img {
+  /* border: 1px solid #9e6804; */
+  min-height: 90%;
+  max-width: 70%;
+  border-radius: 0 20px 20px 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #dae5ec;
+}
+.projectSection ul li p {
+  border-radius: 0 20px 20px 0;
+  margin: 0 auto 0 1.5rem;
+  display: none;
+  background: #dae5ec;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.projectSection ul li:hover p {
+  display: block;
+}
+
+.messageSection div {
+  background: #9e6804;
+  border-radius: 20px;
+  background: linear-gradient(to right, #9e6804 0%, #dae5ec 125%);
+  padding: 1rem;
+}
+.messageSection div ul {
+  list-style-type: none;
+  background: linear-gradient(to right, #9e6804 0%, #dae5ec 125%);
+  color: #9e6804;
+  padding: 0;
+  border-radius: 20px;
+}
+.messageSection div ul li {
+  border: 1px solid #9e6804;
+  background: #dae5ec;
+  border-radius: 20px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+}
+
+.messageSection div span textarea {
+  border: 1px solid #9e6804;
+  width: 100%;
+}
+.messageSection div span button {
+  position: relative;
+  border: 1px solid #9e6804;
+  padding: 0.5rem 1.5rem;
+  background: #dae5ec;
+  border-radius: 10px;
+  transition-duration: 0.4s;
+  overflow: hidden;
+}
+.messageSection div span button:after {
+  content: "";
+  background: #9e6804;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  left: -1px;
+  opacity: 0;
+  transition: all 0.8s;
+}
+.messageSection div span button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+}
+
+.messageSection div span button span {
+  line-height: 0.75rem;
+  font-size: 2.5rem;
+}
+.resumeSection div {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 1rem;
+  text-align: start;
+}
+.resumeSection div span ul[class="list-none"] {
+  list-style-type: none;
+}
+.resumeSection div span h2 {
+  border-bottom: 5px solid;
+  margin-left: 1.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.resumeSection div span p {
+  margin-left: 1.5rem;
+  margin-bottom: 0;
+}
+.resumeSection div span ul {
+  margin-top: 0.5rem;
+}
