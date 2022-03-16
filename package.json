@@ -23,5 +23,9 @@
   "homepage": "https://github.com/carl-vega/express-react-launcher#readme",
   "devDependencies": {
     "concurrently": "^7.0.0"
+  },
+  "dependencies": {
+    "graphql": "^16.3.0",
+    "jwt-decode": "^3.1.2"
   }
 }
