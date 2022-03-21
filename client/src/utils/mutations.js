@@ -27,16 +27,15 @@ export const ADD_USER = gql`
 
 export const ADD_MESSAGE = gql`
   mutation addMessage($body: String!) {
-    addMessage(body: $body) {
+  addMessage(body: $body) {
+    token
+    user {
       _id
       username
       email
-      messages {
-       body
-       sentAt
-      }
     }
   }
+}
 `;
 
 

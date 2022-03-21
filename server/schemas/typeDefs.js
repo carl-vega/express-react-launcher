@@ -21,6 +21,7 @@ export default gql`
     repository: String
     live: String
     image: String
+    pinned: Boolean
   }
   
   input ProjectInput {

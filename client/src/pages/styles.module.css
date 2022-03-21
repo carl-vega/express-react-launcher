@@ -49,14 +49,14 @@
 .resumeSection h1 span {
   transform: skew(-30deg);
   display: inline-block;
-  background: #9e6804;
+  background: #000;
 }
 .projectSection h1 span span,
 .messageSection h1 span span,
 .resumeSection h1 span span {
   transform: skew(50deg);
   display: inline-block;
-  background: #9e6804;
+  background: #000;
   color: #dae5ec;
   padding: 0.5rem 1rem;
 }
@@ -74,44 +74,40 @@
 }
 .projectSection ul li {
   z-index: -1;
-  height: 10rem;
-  border-radius: 20px;
-  /* maybe change left color to #96815b */
-  background: linear-gradient(to right, #9e6804 0%, #dae5ec 100%);
-  /* box-shadow: 8px -8px 10px #aab3b8, -8px 8px 10px #ffffff; */
+  min-height: 12rem;
+  background: #fff;
   position: relative;
-  border: 1px solid #9e6804;
+  border-bottom: 2px solid #bbb;
 }
-/* .projectSection ul li:first-child {
-  grid-area: auto / 1 / span 2 / span 2;
-  height: auto;
-} */
-.projectSection ul li:nth-child(10n + 8),
-.projectSection ul li:nth-child(10n + 1) {
-  grid-area: auto / auto / span 2 / span 2;
-  height: auto;
-}
-/* {
-  grid-area: auto / 1 / span 2 / span 2;
-  height: auto;
-} */
-.projectSection ul li header span {
-  padding: 0.5rem 1.5rem;
+.projectSection ul li:after {
+  content: "";
+  width: 1px;
+  height: 90%;
+  background: #bbb;
   position: absolute;
-  bottom: 1.5rem;
-  left: 1.5rem;
+  right: -4px;
+}
+
+.projectSection ul li header span {
+  border-radius: 0 20px 0 0;
+  padding: 0.5rem;
+  position: absolute;
+  top: 0.25rem;
+  left: 0.5rem;
   background: #dae5ec;
 }
+
 .projectSection ul li header img {
   /* border: 1px solid #9e6804; */
   min-height: 90%;
   max-width: 70%;
   border-radius: 0 20px 20px 0;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 1rem;
+  right: 1rem;
   background: #dae5ec;
 }
+
 .projectSection ul li p {
   border-radius: 0 20px 20px 0;
   margin: 0 auto 0 1.5rem;
@@ -121,19 +117,47 @@
   bottom: 0;
   right: 0;
 }
+.projectSection ul li a:nth-last-child(2) {
+  border-radius: 25%;
+  padding: 0.5rem;
+  position: absolute;
+  top: 33%;
+  left: 0.5rem;
+  background: #dae5ec;
+}
+.projectSection ul li a:nth-last-child(2) img {
+  max-width: 1.5rem;
+}
+.projectSection ul li a:nth-last-child(1) {
+  border-radius: 25%;
+  padding: 0.5rem;
+  position: absolute;
+  top: 66%;
+  left: 0.5rem;
+  background: #dae5ec;
+}
+.projectSection ul li a:nth-last-child(1) img {
+  max-width: 1.5rem;
+}
 .projectSection ul li:hover p {
   display: block;
 }
 
 .messageSection div {
-  background: #9e6804;
-  border-radius: 20px;
-  background: linear-gradient(to right, #9e6804 0%, #dae5ec 125%);
   padding: 1rem;
+  border-bottom: 2px solid #bbb;
+  position: relative;
+}
+.messageSection div:before {
+  content: "";
+  width: 1px;
+  height: 90%;
+  background: #bbb;
+  position: absolute;
+  right: -4px;
 }
 .messageSection div ul {
   list-style-type: none;
-  background: linear-gradient(to right, #9e6804 0%, #dae5ec 125%);
   color: #9e6804;
   padding: 0;
   border-radius: 20px;
@@ -142,10 +166,14 @@
   border: 1px solid #9e6804;
   background: #dae5ec;
   border-radius: 20px;
+  padding-inline-start: 0;
   padding: 1rem;
-  margin: 0.5rem 0;
+  margin-bottom: 1px;
 }
-
+.messageSection div ul .reply {
+  margin-left: 1rem;
+  border-radius: 0 20px 20px;
+}
 .messageSection div span textarea {
   border: 1px solid #9e6804;
   width: 100%;
@@ -163,14 +191,15 @@
   content: "";
   background: #9e6804;
   display: block;
+  border-top-right-radius: 10px;
   position: absolute;
-  padding-top: 300%;
-  padding-left: 350%;
-  margin-left: -20px !important;
+  padding-top: 60%;
+  padding-left: 116%;
   margin-top: -120%;
   left: -1px;
+  bottom: -1px;
   opacity: 0;
-  transition: all 0.8s;
+  transition: all 0.4s;
 }
 .messageSection div span button:active:after {
   padding: 0;
@@ -205,4 +234,17 @@
 }
 .resumeSection div span ul {
   margin-top: 0.5rem;
+}
+.resumeSection a {
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  place-items: center;
+  position: absolute;
+  left: 10%;
+  top: 6rem;
+  width: 150px;
+}
+.resumeSection a img {
+  width: 50px;
 }

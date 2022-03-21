@@ -15,3 +15,16 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_PROJECTS = gql`
+{
+  projects {
+    _id
+    title
+    description
+    repository
+    live
+    image
+    pinned
+  }
+}`;

@@ -1,4 +1,6 @@
-import styles from "./styles.module.css"
+import styles from "./styles.module.css";
+import { resume } from "../images";
+import resume_pdf from "./carl-vega.pdf"
 
 export default function Resume() {
     return (
@@ -80,6 +82,7 @@ export default function Resume() {
                         </ul>
                     </span>
                 </div>
+                <a href={resume_pdf} download><img src={resume} alt="Resume Icon" />Download</a>
             </section>
         </>
     )

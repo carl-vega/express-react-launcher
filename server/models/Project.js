@@ -11,7 +11,8 @@ const projectSchema = new Schema(
     ],
     repository: String,
     live: String,
-    image: String
+    image: String,
+    pinned: Boolean
   }
 );
 

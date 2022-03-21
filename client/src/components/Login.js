@@ -13,13 +13,11 @@ export default function () {
         setFormState({ ...formState, [name]: value })
     };
     const handleLogin = async (e) => {
-        e.preventDefault()
-        console.dir(formState)
+        e.preventDefault();
         try {
             const { data } = await login({
                 variables: { email: formState.email, password: formState.password },
             });
-            console.log(data)
             const token = data.login.token;
             Auth.login(token);
         } catch (e) {

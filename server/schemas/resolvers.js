@@ -39,7 +39,8 @@ export default {
         },
         // addMessage(body: String!) Auth
         addMessage: async (parent, { body }, context) => {
-            const message = (context.user) ? await Message.create(body) : null;
+
+            const message = (context.user) ? await Message.create({ body }) : null;
             const user = (message) ? await User.findOneAndUpdate({ _id: context.user._id }, { $push: { messages: message._id } }) : null;
             const token = signToken(user);
             if (!token) throw new AuthenticationError('You need to be logged in!');
@@ -47,9 +48,11 @@ export default {
         },
         // addReply(messageId: ID!, reply: String): Message
         addReply: async (parent, { messageId, reply }, context) => {
-            const message = (context.user) ? await Message.findOneAndUpdate({ _id: messageId }, { reply }) : null;
+            const isVega = context.user._id === "6233ece83b75d9d08f864a77";
+            const message = (isVega) ? await Message.findOneAndUpdate({ _id: messageId }, { reply }) : null;
+            console.log(message);
             if (!message) throw new Error('You are not Carl Vega');
-            return { message }
+            return message;
         },
         // addProject(projectData: ProjectInput!): [Project]
         addProject: async (parent, { projectData }) => {

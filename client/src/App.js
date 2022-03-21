@@ -11,7 +11,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 // pages directory imports
 import Home from "./pages/Home";
-import Message from "./pages/Message";
+import Messages from "./pages/Messages";
 import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
 // component directory imports
@@ -51,7 +51,7 @@ function App() {
         <main className="App">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="message" element={<Message />} />
+            <Route path="message" element={<Messages />} />
             <Route path="projects" element={<Projects />} />
             <Route path="resume" element={<Resume />} />
           </Routes>

@@ -1,10 +1,9 @@
 .navbar {
   position: sticky;
   top: 0;
-  /* background: #dae5ec; */
-  background: rgb(164, 164, 252);
-  /* box-shadow: 0px 8px 20px #a8b0b6, -12px -12px 24px #ffffff; */
+  background: rgb(76, 126, 128);
   padding: 2rem;
+  z-index: 1;
 }
 .navbar > a {
   position: absolute;
@@ -85,7 +84,7 @@
   color: #f1f1f1;
 }
 
-.sidenav > a.closebtn {
+.closebtn {
   position: absolute;
   top: 0;
   right: 25px;
@@ -176,4 +175,18 @@ input:checked + .slider:before {
   line-height: 2rem;
   width: 7rem;
   margin: 0 auto;
+}
+.loggedIn {
+  display: grid;
+  place-items: center;
+}
+.loggedIn button {
+  outline: none;
+  border: none;
+  border-radius: 0 6px;
+  line-height: 2rem;
+  width: 7rem;
+}
+.pinned {
+  grid-area: auto / auto / span 2 / span 2;
 }
